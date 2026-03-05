@@ -73,3 +73,50 @@ body {
   .reveal-container > *:nth-child(9) { transition-delay: 900ms; }
   .reveal-container > *:nth-child(10) { transition-delay: 1000ms; }
 }
+
+@layer utilities {
+  /* This smoothly fades the job details in when a tab is clicked */
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hides the ugly scrollbar on the mobile horizontal tab list */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .animate-poke {
+    animation: poke 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes poke {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); } /* Pushes 8px to the right */
+  }
+
+  .animate-poke-down {
+    animation: poke-down 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes poke-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); } /* Pushes 8px downward */
+  }
+}
